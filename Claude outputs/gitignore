@@ -1,0 +1,50 @@
+# ===== Visual Studio =====
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+ipch/
+
+# ===== Build-mappar =====
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+build/
+out/
+
+# ===== Kompilerade filer =====
+*.obj
+*.o
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.tlog
+*.lastbuildstate
+*.log
+*.iobj
+*.ipdb
+*.exe
+
+# ===== CMake (om du använder det) =====
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+
+# ===== VS Code / CLion =====
+.vscode/
+.idea/
+
+# ===== OS-skräp =====
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# OBS: SDL3-mappen (include/, lib/, SDL3.dll) ignoreras INTE,
+# så att projektet går att bygga direkt efter kloning.

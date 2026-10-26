@@ -1,0 +1,33 @@
+# ===== Build (CMake/Ninja) =====
+# Allt i build/ genereras om när man bygger
+build/
+cmake-build-*/
+out/
+
+# ===== Runtime-filer som skapas när spelet körs =====
+# Hot reload: main.cpp kopierar FROGGERS_game.dll -> FROGGERS_temp.dll vid start
+*_temp.dll
+# ImGui sparar fönsterpositioner här
+imgui.ini
+
+# ===== Debug-symboler / mellanfiler =====
+*.pdb
+*.ilk
+*.obj
+*.exp
+
+# ===== Editorer =====
+.vs/
+.vscode/
+.idea/
+.cache/
+*.user
+
+# ===== OS-skräp =====
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# OBS: release/ ignoreras INTE med flit, så att spelet går att
+# köra direkt efter nedladdning. lib/, include/ och src_external/
+# ligger också kvar så att projektet bygger direkt efter kloning.

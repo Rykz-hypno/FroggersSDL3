@@ -1,0 +1,3 @@
+// cmake
+CompileFlags:
+	CompilationDatabase: build/
