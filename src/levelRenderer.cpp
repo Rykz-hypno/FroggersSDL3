@@ -54,7 +54,8 @@ void RenderEntities(GameData* data, SDL_Renderer* renderer){
 
     Camera lifted = data->camera;
     lifted.camera_y += hop;
-    RenderSprite_Grid(sprite, lvl, renderer, &lifted, x_animated, y_animated);
+    bool flip = entity->HasBehaviour(RESPOND_TO_INPUT) && entity->dirX > 0;
+    RenderSprite_Grid(sprite, lvl, renderer, &lifted, x_animated, y_animated, 1, 1, flip);
   }
 }
 

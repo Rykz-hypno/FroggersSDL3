@@ -1,4 +1,4 @@
 Rör dig med pilarna
-använd Tungan med mellanslag :P
+använd rungan med mellanslag :P
 ångra med Z
 starta om med R

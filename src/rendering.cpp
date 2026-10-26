@@ -5,7 +5,7 @@
 #include "button.h"
 #include <cassert>
 
-void RenderSprite_World(Sprite* sprite, SDL_Renderer* renderer, const Camera* camera, float x, float y, float scale, float alpha){
+void RenderSprite_World(Sprite* sprite, SDL_Renderer* renderer, const Camera* camera, float x, float y, float scale, float alpha, bool flip_horizontal){
   SDL_FRect rect;
   rect.x = x - sprite->pivot_x * UPSCALE_FACTOR * scale;
   rect.y = y - sprite->pivot_y * UPSCALE_FACTOR * scale;
@@ -18,15 +18,15 @@ void RenderSprite_World(Sprite* sprite, SDL_Renderer* renderer, const Camera* ca
 
   SDL_SetTextureScaleMode(sprite->texture, SDL_SCALEMODE_NEAREST);
   SDL_SetTextureAlphaModFloat(sprite->texture, alpha);
-  SDL_RenderTexture(renderer, sprite->texture, NULL, &rect);
+  SDL_RenderTextureRotated(renderer, sprite->texture, NULL, &rect, 0.0, NULL, flip_horizontal ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
-void RenderSprite_Grid(Sprite* sprite, LevelData* lvl, SDL_Renderer* renderer, const Camera* camera, float x, float y, float scale, float alpha){
+void RenderSprite_Grid(Sprite* sprite, LevelData* lvl, SDL_Renderer* renderer, const Camera* camera, float x, float y, float scale, float alpha, bool flip_horizontal){
   camera::GridToWorld(&x, &y, lvl);
 
   x += CELL_SIZE_PX / 2.0;
   y += CELL_SIZE_PX / 2.0;
-  RenderSprite_World(sprite, renderer, camera, x, y, scale, alpha);
+  RenderSprite_World(sprite, renderer, camera, x, y, scale, alpha, flip_horizontal);
 }
 
 void RenderText(FontAtlas* atlas, const char* text, SDL_Renderer* renderer, const Camera* camera, float x, float y, Alignment mode){
